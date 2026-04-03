@@ -1,0 +1,15 @@
+
+# Use Distroless Node.js as a parent image
+FROM node:12.7-alpine
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy only the production build of the app
+COPY dist/ ./dist/
+
+# Expose the port the app runs in (if necessary)
+EXPOSE 8080
+
+# Run the command to start the application
+CMD ["dist/server.js"]
