@@ -8,9 +8,10 @@ A simple Java web application that can be packaged into a `.war` file and deploy
 
 This project demonstrates how to:
 
-* Build a basic Java web application
+* Build a Java web application
 * Package it as a WAR file
 * Deploy it on Apache Tomcat
+* Integrate with basic DevOps workflows
 
 ---
 
@@ -19,6 +20,7 @@ This project demonstrates how to:
 * Java
 * JSP/Servlet
 * Apache Tomcat
+* Docker (optional)
 
 ---
 
@@ -54,6 +56,41 @@ cd /opt/tomcat/bin
 ## 🌐 Access Application
 
 http://localhost:8080/tomcat-sample-webapp
+
+---
+
+## 🐳 Run with Docker (Optional)
+
+### Dockerfile
+
+```dockerfile
+FROM tomcat:9-jdk11
+COPY tomcat-sample-webapp.war /usr/local/tomcat/webapps/
+```
+
+### Build & Run
+
+```bash
+docker build -t tomcat-app .
+docker run -d -p 8080:8080 tomcat-app
+```
+
+---
+
+## 🔄 CI/CD Pipeline (Overview)
+
+* Pull code from GitHub
+* Build WAR file
+* Deploy to Tomcat server
+* Verify application
+
+---
+
+## 👨‍💻 Author
+
+Gaurav Kumbhar
+https://github.com/madmaxdevops
+
 
 ---
 
